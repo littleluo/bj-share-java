@@ -92,8 +92,7 @@ public class HttpClientConnPool {
             List<NameValuePair> params = new ArrayList<>();
             params.add(new BasicNameValuePair("commentId", "18718372"));
             post.setEntity(new UrlEncodedFormEntity(params, charset));
-            HttpResponse response = client.execute(post);
-            String res = EntityUtils.toString(response.getEntity());
+            String res = client.execute(post, responseHandler);
             log.info("请求结果==== " + res);
         } catch (UnsupportedEncodingException e) {
             log.error("请求异常==== " + e);

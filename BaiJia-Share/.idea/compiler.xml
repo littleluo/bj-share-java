@@ -7,12 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="BaiJia-Share" />
+        <module name="share" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="BaiJia-Share" options="-parameters" />
+      <module name="share" options="-parameters" />
     </option>
   </component>
 </project>
