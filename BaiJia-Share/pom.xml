@@ -13,6 +13,9 @@
     <version>1.0</version>
     <name>BaiJia Share</name>
     <url>http://maven.apache.org</url>
+    <properties>
+        <jedis.version>2.9.0</jedis.version>
+    </properties>
     <packaging>war</packaging>
     <dependencies>
         <dependency>
@@ -56,6 +59,11 @@
             <groupId>dom4j</groupId>
             <artifactId>dom4j</artifactId>
             <version>1.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${jedis.version}</version>
         </dependency>
     </dependencies>
 </project>
