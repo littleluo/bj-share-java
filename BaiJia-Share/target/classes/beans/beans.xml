@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <bean id="beanPostProcessor" class="com.bj.spring.bean.DataSourcePasswordEncryptPostProcessor">
+    </bean>
+
+    <bean id="instantiationAwareBeanPostProcessor" class="com.bj.spring.bean.BJBeanFactoryPostProcessor">
+    </bean>
+
+    <bean id="product" class="com.bj.spring.bean.Product" init-method="initProduct"
+          destroy-method="destroyProduct" scope="singleton" p:name="美味KFC" p:feature="美味十足"
+          p:id="1234587" />
+
+</beans>

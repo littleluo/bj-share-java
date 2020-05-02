@@ -27,7 +27,7 @@ public class RedisUtil {
 
     private static JedisPool pool = null;
 
-    private static RedisUtil ru = new RedisUtil();
+    private static RedisUtil ru = null;
 
     public static void main(String[] args) {
         RedisUtil redisUtil = RedisUtil.getInstance();
@@ -35,7 +35,7 @@ public class RedisUtil {
         LOGGER.info(redisUtil.get("test"));
     }
 
-    private RedisUtil() {
+    public RedisUtil() {
         if (pool == null) {
             String ip = "127.0.0.1";
             int port = 6379;
