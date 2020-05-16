@@ -5,11 +5,12 @@
        xsi:schemaLocation="
             http://www.springframework.org/schema/beans
             http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
-    <bean id="transferService" class="com.bj.spring.bean.scope.TransferServiceImpl" scope="prototype">
-        <constructor-arg name="transferRecords" ref="transferRecords"></constructor-arg>
-        <constructor-arg name="transferDao" ref="transferDao"></constructor-arg>
+   <!-- <bean id="transferService" class="com.bj.spring.bean.scope.TransferServiceImpl" scope="singleton">
+    &lt;!&ndash;    <constructor-arg name="transferRecords" ref="transferRecords"></constructor-arg>&ndash;&gt;
+        <constructor-arg name="transferDao" ref="transferDao" />
+      &lt;!&ndash;  <lookup-method bean="transferRecords" name="getTransferRecordsBean" />&ndash;&gt;
     </bean>
-    <bean id="transferRecords" class="com.bj.spring.bean.scope.TransferRecords"
-          scope="prototype" p:accountId="田七" p:anotherAccountId="广坤" />
-    <bean id="transferDao" class="com.bj.spring.bean.scope.TransferDao"  scope="singleton"  />
+&lt;!&ndash;    <bean id="transferRecords" class="com.bj.spring.bean.scope.TransferRecords"
+          scope="prototype" p:accountId="田七" p:anotherAccountId="广坤" />&ndash;&gt;
+    <bean id="transferDao" class="com.bj.spring.bean.scope.TransferDao"  scope="singleton"  />-->
 </beans>

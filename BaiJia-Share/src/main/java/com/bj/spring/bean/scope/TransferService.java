@@ -23,4 +23,8 @@ public interface TransferService {
      */
     void tranfer(String accountId, String anotherAccountId);
 
+    /**
+     * 初始化bean
+     */
+    void initTransferRecord();
 }

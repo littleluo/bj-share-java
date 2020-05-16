@@ -8,6 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -37,11 +39,19 @@ public class BJAppStart {
         log.info("现在开始关闭容器！");
         ((ClassPathXmlApplicationContext)factory).registerShutdownHook();*/
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("/beans/transferBeans.xml");
-        log.info("开始请求transferService");
+       // ApplicationContext context = new ClassPathXmlApplicationContext("/beans/transferBeans.xml");
+        ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("/applicationContext.xml");
+        log.info("开始请求transferService，@Lazy注解");
+
         TransferService transferService_1 = context.getBean(TransferServiceImpl.class);
-        TransferService transferService_2 = context.getBean(TransferServiceImpl.class);
-        log.info("transferService_1 == transferService_2 ? 结果是：{}", transferService_1.equals(transferService_2));
-        log.info("请求transferService结束");
+        //TransferService transferService_2 = context.getBean(TransferServiceImpl.class);
+        //log.info("transferService_1 == transferService_2 ? 结果是：{}", transferService_1.equals(transferService_2));
+        log.info("Calling --> transferRecords");
+        transferService_1.initTransferRecord();
+        //transferService_1.tranfer("刘能","七哥");
+        log.info("Calling again --> transferRecords");
+        transferService_1.initTransferRecord();
+        //transferService_2.tranfer("广坤","七哥");
+        log.info("请求transferService结束，@Lazy注解");
     }
 }
